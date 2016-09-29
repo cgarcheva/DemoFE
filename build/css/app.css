@@ -1,11 +1,16 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-family: "Myriad Pro"; font-size: 14px; }
-
-body { background: #000; }
-
-header { min-height: 60px; background: url("../../assets/img/bg-header.png"); background-size: 100% 100%; background-repeat: no-repeat; }
-header .user { width: 42px; height: 42px; border: 1px solid #363429; border-radius: 5px; }
-header .rank { width: 42px; height: 42px; border: 1px solid #3c3727; border-radius: 20px; background: rgba(60, 55, 39, 0.6); background-image: url("../../assets/img/rank.png"); }
-header .points { font-size: 50px; }
-header .home-icon { width: 37px; height: 42px; background-image: url("../../assets/img/homeIcon.png"); }
+html { font-family: 'Roboto', sans-serif; font-size: 14px; }
+html body { background: #000; font-family: 'Poiret One', sans-serif; /* start navigation's style */ /* end navigation's style */ }
+html body header { min-height: 60px; background: url("../../assets/img/bg-header.png"); background-size: 100% 100%; background-repeat: no-repeat; }
+html body header .points { position: absolute; left: 0; right: 0; top: -2px; margin-left: auto; margin-right: auto; font-size: 50px; }
+html body header .navbar { margin-bottom: 0; }
+html body header .nav > li > a:hover { background: transparent; }
+html body header .nav > li > a:focus { background: transparent; }
+html body header .nav.navbar-nav { width: 100%; margin-top: 7px; }
+html body header .nav.navbar-nav .user { width: 42px; height: 42px; margin-right: 21px; border: 1px solid #363429; border-radius: 5px; background-image: url("../../assets/img/user-pic.png"); }
+html body header .nav.navbar-nav .rank { width: 42px; height: 42px; border: 1px solid #3c3727; border-radius: 20px; background: rgba(60, 55, 39, 0.6); background-image: url("../../assets/img/rank.png"); }
+html body header .nav.navbar-nav .vip { width: 106px; height: 42px; margin-right: 186px; background-image: url("../../assets/img/vip.png"); }
+html body header .nav.navbar-nav .home-icon { width: 37px; height: 42px; background-image: url("../../assets/img/homeIcon.png"); }
+html body .home-video { height: 489px; background-image: url("../../assets/img/lesson_pic.png"); }
+html body .advertisement { height: 22px; background: #8a8048; border-top: 1px solid #f1374c; border-bottom: 1px solid #f1374c; }
