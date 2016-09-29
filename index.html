@@ -10,18 +10,57 @@
 
 
     <link rel="stylesheet" type="text/css" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="build/css/thirdparty.css">
     <link rel="stylesheet" type="text/css" href="build/css/app.css">
 </head>
 
-<body >
+<body>
 
 
     <div ng-controller="HwEnglishController">
 
-        <header>
-            <div class="main-wrap">
-                <p> Demo APP </p>
-            </div>
+        <header class="navbar container-fluid">
+            <nav class="navbar navbar-light bg-faded">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <ul class="nav navbar-nav">
+                    <li class="nav-item user">
+                        <a class="nav-link" href="#">
+                            <img src="assets/img/user-pic.png" alt="avatar">
+                        </a>
+                    </li>
+                    <li class="nav-item rank">
+                        <a class="nav-link" href="#">
+                        </a>
+                    </li>
+                    <li class="nav-item points">
+                        <a class="nav-link" href="#">
+                            <p>6.790</p>
+                        </a>
+                    </li>
+                    <li class="nav-item vip">
+                        <a class="nav-link" href="#">
+                            <img src="assets/img/vip.png" alt="vip">
+                        </a>
+                    </li>
+                    <li class="nav-item home-icon">
+                        <a class="nav-link" href="#">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- <div>
+                    <div class="nav-item user">
+                        <img src="assets/img/user-pic.png" alt="avatar">
+                    </div>
+                    <div class="nav-item rank">
+                    </div>
+                    <div class="nav-item points">
+                    </div>
+                    <div class="nav-item vip">
+                    </div>
+                    <div class="nav-item home-icon"></div>
+            </div> -->
         </header>
 
             <!-- INJECT THE CONTENT HERE ============================== -->
@@ -32,15 +71,15 @@
         </div>
     </div>
 
-    <!-- dev resources -->
+    <!-- dev need -->
     <script src="build/js/thirdparty.js"></script>
     <script src="build/js/app.js"></script>
-    <!-- END of dev resources -->
 
-    <!-- prod resources -->
+    <!-- prod need -->
     <!--<script src="build/js/thirdparty.min.js"></script>-->
     <!--<script src="build/js/app.min.js"></script>-->
-    <!-- END of prod resources -->
+
+
 
 </body>
 </html>

@@ -34,6 +34,12 @@ module.exports = function(grunt) {
                 ],
                 dest: 'build/js/thirdparty.js'
             },
+            thirdparty_style: {
+                src: [
+                    'node_modules/bootstrap/dist/css/bootstrap.css'
+                ],
+                dest: 'build/css/thirdparty.css'
+            },
             thirdpartyMin: {
                 src: [
                     //include libraries
@@ -43,6 +49,13 @@ module.exports = function(grunt) {
                     'node_modules/angular-animate/angular-animate.js'
                 ],
                 dest: 'build/js/thirdparty.min.js'
+            },
+           thirdpartyMin_style: {
+                src: [
+                    'node_modules/bootstrap/dist/css/bootstrap.css'
+
+                ],
+                dest: 'build/css/thirdparty.min.css'
             }
         },
         watch: {

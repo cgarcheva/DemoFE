@@ -1,0 +1,72 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: "Myriad Pro";
+	font-size: 14px;
+}
+
+body {
+	background: #000;
+}
+
+header {
+	min-height: 60px;
+	background: url('../../assets/img/bg-header.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+
+		// .navbar {
+		// 	height: 51px;
+
+			// div {
+			// 	float: left;
+			// }
+
+	// .main-wrap {
+	// 	max-width: 95.88%;
+	// 	height: 51px;
+	// 	margin: 0 auto; 
+	// 	padding-top: 9px;
+
+		// ul {
+
+			// li {
+			// 	list-style-type: none;
+			// 	float: left;
+
+				.user {
+					width: 42px;
+					height: 42px;
+					border: 1px solid #363429;
+					border-radius: 5px;
+				}
+
+				.rank {
+					width: 42px;
+					height: 42px;
+					border: 1px solid #3c3727;
+					border-radius: 20px;
+					background: rgba(60, 55, 39, .6);
+					background-image: url('../../assets/img/rank.png');
+				}
+
+				.points {
+					font-size: 50px; 
+				}
+
+				.home-icon {
+					width: 37px;
+					height: 42px;
+					background-image: url('../../assets/img/homeIcon.png');
+
+				}
+		// }
+			// }
+		// }
+	// }
+}
+
