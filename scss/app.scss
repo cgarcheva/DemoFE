@@ -112,9 +112,9 @@ html {
 					    .play-button {
 				    		display: block;
 				    		position: absolute;
-						    top: 25%;
+				    		top: 41%;
 						    bottom: 25%;
-					    	transform: scale(1.9);
+						    transform: scale(1.2);
 						    width: 157px;
 						    height: 110px;
 					        border-radius: 77px;
@@ -133,23 +133,56 @@ html {
 			
 
 			.advertisement {
-				position: fixed;
-				bottom: 197px;
 				width: 100%;
 				height: 22px;
+				color: #000;
 				background: #8a8048;
 				border-top: 1px solid #f1374c; 
 				border-bottom: 1px solid #f1374c; 
 
-				ul {
-					li {
-						float: left;
-						margin-left: 25px;
-						color: #000;
-						list-style-type: circle inside;
+				.ticker {
+					height: 100px;
+					overflow: hidden;
+					position: relative;
+
+					.viewport {
+						position: absolute;
+						height: 100px;
+						white-space: nowrap;
+
+						&.moving {
+						 animation: moveLeft infinite 50s linear;
+						}
+						.box {
+						  display: inline-block;
+						  // width: 100px;
+						  height: 100%;
+						  margin: 0 5px;
+						  text-align: center;
+						}
 					}
 				}
-			}
+
+				@keyframes moveLeft {
+					0% {
+						transform: translateX(0)
+					}
+					20% {
+						transform: translateX(-20%)
+					}
+					40% {
+						transform: translateX(-40%)
+					}
+					60% {
+						transform: translateX(-60%)
+					}
+					80% {
+						transform: translateX(-80%)
+					}
+					100% {
+						transform: translateX(-110%)
+					}
+				}
 
 			.home-slider {
 				position: fixed;
@@ -244,26 +277,53 @@ html {
 			}
 			/* end navigation's style */
 
+			/* home page's style */
+
 			.home-page{
 			position: relative;
 
 				.home-video {
 				    .play-button {
-				    	transform: scale(3);
+				    	transform: scale(2);
+					    top: 61%;
+					    left: 5%;
 				    }
 						    
 				}
 			}
 			
 
-			.advertisement {
-				height: 22px;
-				background: #8a8048;
-				border-top: 1px solid #f1374c; 
-				border-bottom: 1px solid #f1374c; 
+			
+		}
+
+	}
+
+}
+
+@media screen and (min-width: 980px) {
+	html {
+		body {
+
+			/* start navigation's style */
+
+		
+
+			/* home page's style */
+
+			.home-page{
+			position: relative;
+
+				.home-video {
+				    .play-button {
+				    	transform: scale(2.2);
+				    	top: 30%;
+				    }
+						    
+				}
 			}
 		}
 
 	}
 
+}
 }
