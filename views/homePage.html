@@ -10,37 +10,27 @@
 	<!-- end lesson preview -->
 
     <div class="advertisement">
-    	<div ng-app="ticker">
+    	<div>
 		    <div class="ticker">
 		      <div ng-class="{moving: moving}" class="viewport">
-		        <div ng-repeat="box in boxes" class="box"><span>{{ box.title }}</span></div>
+		        <div ng-repeat="box in boxes" class="box"><span class="circle"></span><span>{{ box.title }}</span></div>
 		      </div>
 		    </div>
 		</div>
     </div>
 	
 	<div class="home-slider">
-		<div class="lesson">
-			
-		</div>
-		<div class="lesson">
-			
-		</div>
-		<div class="lesson">
-			
-		</div>
-		<div class="lesson">
-			
-		</div>
-		<div class="lesson">
-			
-		</div>
-		<div class="lesson">
-			
-		</div>
-		<div class="lesson">
-			
-		</div>
-		
+		<a href="#" ng-repeat="lesson in lessons">
+			<div class="lesson">
+				<p>{{ lesson.number }}</p>
+				<div class="lesson-right-part" ng-style="{'background':'{{ lesson.leftSideBG }}'}"><img ng-src="../assets/img/{{ lesson.leftSideSymbol }}"></div>
+			</div>
+		</a>
+<!-- 		<a href="#">
+			<div class="lesson">
+				<p>1</p>
+				<div class="lesson-right-part"><img src="../assets/img/check.png"></div>
+			</div>
+		</a> -->		
 	</div>    
 </div>

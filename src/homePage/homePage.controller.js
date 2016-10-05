@@ -5,7 +5,7 @@
 	var app = angular.module("hwEnglish.home");
 
 
-	/**
+	 /**
      * @ngdoc controller
      * @name hwEnglish.homePage.controller:HomePageController
      * @module hwEnglish.homePage
@@ -15,7 +15,7 @@
      *
      */
 
-	app.controller('HomeController',['$scope',  '$timeout', '$interval',function($scope, $timeout, $interval){
+	app.controller('HomeController',['$scope', '$interval', function($scope, $interval){
 		$scope.boxes = [
             {title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
             {title: 'Quisque nec tellus eleifend, luctus elit ac, pellentesque est. Vivamus sed nunc elementum, faucibus tortor id, rhoncus arcu. '},
@@ -33,16 +33,23 @@
 
         $scope.moveLeft = function() {
             $scope.moving = true;
-            // $timeout($scope.switchFirst, 1000);
         };
-        
+
         $scope.switchFirst = function() {
-            // $scope.boxes.push($scope.boxes.shift());
             $scope.moving = false;
             $scope.$apply();
         };
 
         $interval($scope.moveLeft, 2000);
+
+
+        $scope.lessons = [
+        	{number: "1", background: "000", leftSideBG: "#fff", leftSideSymbol: "check.png"}
+        	{number: "2", background: "fff", leftSideBG: "#000", leftSideSymbol: "check.png"}
+        	{number: "3", background: "666", leftSideBG: "#fff", leftSideSymbol: "check.png"}
+        	{number: "4", background: "eee", leftSideBG: "#000", leftSideSymbol: "check.png"}
+        	{number: "5", background: "000", leftSideBG: "#eee", leftSideSymbol: "check.png"}
+        ]
 	}]);
 
 })();

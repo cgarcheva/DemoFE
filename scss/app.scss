@@ -117,7 +117,7 @@ html {
 						    transform: scale(1.2);
 						    width: 157px;
 						    height: 110px;
-					        border-radius: 77px;
+					        border-radius: 39px;
 					    	background: rgba(223,204,146,1);
 							background: -moz-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
 							background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(223,204,146,1)), color-stop(100%, rgba(109,101,61,1)));
@@ -133,15 +133,19 @@ html {
 			
 
 			.advertisement {
+				position: fixed;
+    			bottom: 197px;
+    			top: auto;
 				width: 100%;
 				height: 22px;
-				color: #000;
+				color: #363636;
+				font-weight: bold;
 				background: #8a8048;
 				border-top: 1px solid #f1374c; 
 				border-bottom: 1px solid #f1374c; 
 
 				.ticker {
-					height: 100px;
+					height: 19px;
 					overflow: hidden;
 					position: relative;
 
@@ -151,14 +155,25 @@ html {
 						white-space: nowrap;
 
 						&.moving {
-						 animation: moveLeft infinite 50s linear;
+						   animation: moveLeft infinite 50s linear;
 						}
+
 						.box {
-						  display: inline-block;
-						  // width: 100px;
-						  height: 100%;
-						  margin: 0 5px;
-						  text-align: center;
+							position: relative;
+						    display: inline-block;
+						    height: 100%;
+						    margin: 0 15px;
+						    text-align: center;
+
+						  	.circle {
+								position: absolute;
+								top: 6px;
+								left: -19px;
+						  		background: #363636;
+						  		width: 10px;
+						  		height: 10px;
+						  		border-radius: 5px;
+						  	}
 						}
 					}
 				}
@@ -184,26 +199,53 @@ html {
 					}
 				}
 
-			.home-slider {
-				position: fixed;
-				bottom: 0;
-				top: auto;
-				height: 197px;
-				width: 100%;
-				background: url('../../assets/img/bg-video-slider.png') 100% 100%;
+		}
 
-				.lesson {
-					float: left;
-					margin: 28px 30px;
-					width: 321px;
-					height: 156px;
-					background: #000;
+		.home-slider {
+			position: fixed;
+			bottom: 0;
+			height: 197px;
+			width: 100%;
+			background: url('../../assets/img/bg-video-slider.png') 100% 100%;
+
+			.lesson {
+				position: relative;
+				float: left;
+				margin: 28px 30px;
+				width: 321px;
+				height: 156px;
+				// background: #000;
+				border: 1px solid #8a8048;
+				border-radius: 10px;
+
+				p {	
+					position: absolute;
+					top: 65px;
+					left: 18px;
+					color: #8a8048;
+					font-size: 75px;
+				}
+
+				div {
+					position: absolute;
+					right: 10px;
+					top: 7px;
+					height: 140px;
+					width: 196px;
+					// background: #000;
 					border: 1px solid #8a8048;
-					border-radius: 10px;
+					border-radius: 6px;
+
+					img {
+						position: absolute;	
+						top: 28px;
+						right: 43px;
+					}
 				}
 			}
 		}
 	}
+}
 
 
 @media screen and (min-width: 680px) {
@@ -297,33 +339,24 @@ html {
 		}
 
 	}
-
 }
 
 @media screen and (min-width: 980px) {
 	html {
 		body {
-
-			/* start navigation's style */
-
-		
-
-			/* home page's style */
-
 			.home-page{
-			position: relative;
+				position: relative;
 
 				.home-video {
-				    .play-button {
-				    	transform: scale(2.2);
-				    	top: 30%;
-				    }
-						    
+			    	.play-button {
+			    		transform: scale(2);
+			    		top: 30%;
+			    	}
+					    
 				}
 			}
 		}
 
 	}
+}
 
-}
-}
