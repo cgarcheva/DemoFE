@@ -112,7 +112,7 @@ html {
 					    .play-button {
 				    		display: block;
 				    		position: absolute;
-				    		top: 41%;
+				    		top: 64%;
 						    bottom: 25%;
 						    transform: scale(1.2);
 						    width: 157px;
@@ -167,7 +167,7 @@ html {
 
 						  	.circle {
 								position: absolute;
-								top: 6px;
+								top: 5px;
 								left: -19px;
 						  		background: #363636;
 						  		width: 10px;
@@ -207,39 +207,49 @@ html {
 			height: 197px;
 			width: 100%;
 			background: url('../../assets/img/bg-video-slider.png') 100% 100%;
+			overflow: auto;
+    		white-space: nowrap;
 
-			.lesson {
-				position: relative;
-				float: left;
-				margin: 28px 30px;
-				width: 321px;
-				height: 156px;
-				// background: #000;
-				border: 1px solid #8a8048;
-				border-radius: 10px;
-
-				p {	
-					position: absolute;
-					top: 65px;
-					left: 18px;
-					color: #8a8048;
-					font-size: 75px;
-				}
-
-				div {
-					position: absolute;
-					right: 10px;
-					top: 7px;
-					height: 140px;
-					width: 196px;
+    		&::-webkit-scrollbar { 
+    			display: none; 
+			}
+			
+			a{
+				display: inline-block;
+			
+				.lesson {
+					position: relative;
+					float: left;
+					margin: 13px 30px;
+					width: 321px;
+					height: 156px;
 					// background: #000;
 					border: 1px solid #8a8048;
-					border-radius: 6px;
+					border-radius: 10px;
 
-					img {
-						position: absolute;	
-						top: 28px;
-						right: 43px;
+					p {	
+						position: absolute;
+						top: 65px;
+						left: 18px;
+						color: #8a8048;
+						font-size: 75px;
+					}
+
+					div {
+						position: absolute;
+						right: 10px;
+						top: 7px;
+						height: 140px;
+						width: 196px;
+						// background: #000;
+						border: 1px solid #8a8048;
+						border-radius: 6px;
+
+						img {
+							position: absolute;	
+							top: 28px;
+							right: 43px;
+						}
 					}
 				}
 			}
