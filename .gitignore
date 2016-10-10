@@ -1,4 +1,5 @@
-node_modules
-bower_components
-build
-docs
+**/node_modules/
+**/bower_components/
+**/build/
+**/docs/
+
