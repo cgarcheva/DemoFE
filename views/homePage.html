@@ -2,8 +2,12 @@
 	<!-- lesson preview -->
     <div class="home-video">
     	<!-- <a href="#" class="col-md-offset-1 col-xs-offset-1"><img src="../assets/img/play-button.png" alt=""></a> -->
-    	<a href="#" class="play-button col-lg-offset-2 col-md-offset-2 col-xs-offset-4">
-    	</a>
+    	<div class="container-fluid container-button">
+	    	<div class="row button">
+		    	<a href="#" class="play-button pagination-centered col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-4 col-xs-offset-1 col-xs-8">
+	    	</a>
+	    	</div>
+    	</div>
     		
     	<img src="" alt="">
     </div>
@@ -21,16 +25,10 @@
 	
 	<div class="home-slider" horizontal-scroll>
 		<a href="#" ng-repeat="lesson in lessons">
-			<div class="lesson">
+			<div class="lesson" ng-style="{'background':'{{ lesson.background }}'}">
 				<p>{{ lesson.number }}</p>
 				<div class="lesson-right-part" ng-style="{'background':'{{ lesson.leftSideBG }}'}"><img ng-src="../assets/img/{{ lesson.leftSideSymbol }}"></div>
 			</div>
-		</a>
-<!-- 		<a href="#">
-			<div class="lesson">
-				<p>1</p>
-				<div class="lesson-right-part"><img src="../assets/img/check.png"></div>
-			</div>
-		</a> -->		
+		</a>		
 	</div>    
 </div>
