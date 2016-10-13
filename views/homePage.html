@@ -1,6 +1,6 @@
 <div ng-controller="HomeController" class="home-page">
 	<!-- lesson preview -->
-    <div class="home-video">
+    <div id="bg" class="home-video">
     	<!-- <a href="#" class="col-md-offset-1 col-xs-offset-1"><img src="../assets/img/play-button.png" alt=""></a> -->
 
 <!-- 		<div id="bg"><a href="#" class="nextImageBtn" title="next"></a><a href="#" class="prevImageBtn" title="previous"></a><img src="../assets/img/lesson_pic.png" width="1680" height="1050" alt="Denebola" title="Denebola" id="bgimg" /></div>
@@ -12,8 +12,14 @@
 	    	</div>
     	</div>
     		
-    	<img src="" alt="">
+    	
+    	<img src="../assets/img/Universe_and_planets_digital_art_wallpaper_denebola.jpg" alt="Denebola" title="Denebola"  width="1300" height="700" id="bgimg" />
+		
+		<div id="preloader"><img src="ajax-loader_dark.gif" width="32" height="32" /></div>
+
     </div>
+
+
 	<!-- end lesson preview -->
 
     <div class="advertisement">
@@ -28,20 +34,21 @@
 
     <!-- horizontal-scroll -->
 
-
-
-    <div id="preloader"><img src="ajax-loader_dark.gif" width="32" height="32" /></div>
-
     <div id="thumbnails_wrapper">
 		<div id="outer_container">
 			<div class="thumbScroller" id="basic">
-				<div class="container home-slider" horizontal-scroll>
-					<div class="content" ng-repeat="lesson in lessons">
+				<div class="container home-slider">
+					<div class="content" ng-repeat="lesson in lessons"  sly-horizontal-repeat >
 						<div class="lesson" ng-style="{'background':'{{ lesson.background }}'}">
 							<p>{{ lesson.number }}</p>
-							<div class="lesson-right-part" ng-style="{'background':'{{ lesson.leftSideBG }}'}">
-									<img ng-src="../assets/img/{{ lesson.leftSideSymbol }}">
+							<a ng-click="changeImage()">
+
+							<div class="lesson-right-part" >
+								<img src="../assets/img/Universe_and_planets_digital_art_wallpaper_denebola_thumb.jpg" title="Denebola" alt="Denebola" class="thumb" />
+
+								<img class="symbol" ng-src="../assets/img/{{ lesson.leftSideSymbol }}">
 							</div>
+							</a>
 						</div>
 					</div>		
 				</div> 

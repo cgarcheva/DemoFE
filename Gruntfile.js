@@ -32,8 +32,9 @@ module.exports = function(grunt) {
                     'node_modules/angular-local-storage/dist/angular-local-storage.js',
                     'node_modules/angular-animate/angular-animate.js',
                     'node_modules/jquery/dist/jquery.min.js',
-                    'thirdparty/sly.js'
-                ],
+                    'bower_components/jquery.easing/js/jquery.easing.js',
+                     'bower_components/sly/dist/sly.js'          
+                    ],
                 dest: 'build/js/thirdparty.js'
             },
             thirdparty_style: {
@@ -50,8 +51,9 @@ module.exports = function(grunt) {
                     'node_modules/angular-local-storage/dist/angular-local-storage.js',
                     'node_modules/angular-animate/angular-animate.js',
                     'node_modules/jquery/dist/jquery.min.js',
-                    'thirdparty/sly.js'
-                ],
+                    'bower_components/jquery.easing/js/jquery.easing.min.js',
+                    'bower_components/sly/dist/sly.min.js'               
+                     ],
                 dest: 'build/js/thirdparty.min.js'
             },
            thirdpartyMin_style: {

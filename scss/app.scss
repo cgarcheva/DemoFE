@@ -120,6 +120,10 @@ html {
 			position: relative;
 
 			.home-video {
+				position: fixed;
+			    overflow: hidden;
+			    width: 100%;
+			    height: 100%;
 				height: 71%;
 				// background-image: url(../../assets/img/lesson_pic.png);
 
@@ -129,6 +133,7 @@ html {
 				// }
 
 			    	.container-button{
+			    		position: absolute; 	 	
 			    		height: 100%;
 					    display: table;
 					    width: 100%;
@@ -155,6 +160,11 @@ html {
 					    	}
 					    
 			    		}
+
+			    	 	#bgimg {
+			    	 		width: 100%;
+			    	 		height: 100%;
+			    	 	}
 			    	}
 			    }
 			
@@ -253,7 +263,7 @@ html {
 							.lesson {
 								position: relative;
 								float: left;
-								margin: 22px 30px;
+								margin: 10px 30px;
 								width: 321px;
 								height: 156px;
 								border: 1px solid #8a8048;
@@ -276,10 +286,15 @@ html {
 									border: 1px solid #8a8048;
 									border-radius: 6px;
 
-									img {
+									.symbol {
 										position: absolute;	
 										top: 28px;
 										right: 43px;
+									}
+
+									.thumb {
+										width: 100%;
+										height: 100%;
 									}
 								}
 							}
