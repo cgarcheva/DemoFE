@@ -121,9 +121,12 @@ html {
 
 			.home-video {
 				height: 71%;
-				background-image: url(../../assets/img/lesson_pic.png);
-			    background-size: 100% 100%;
-			    background-repeat: no-repeat;
+				// background-image: url(../../assets/img/lesson_pic.png);
+
+				// #bg {
+				//     background-size: 100% 100%;
+				//     background-repeat: no-repeat;
+				// }
 
 			    	.container-button{
 			    		height: 100%;
@@ -225,52 +228,61 @@ html {
 
 		}
 
-		.home-slider {
-			position: fixed;
-			bottom: 0;
-			height: 197px;
-			width: 100%;
-			background: url('../../assets/img/bg-video-slider.png') 100% 100%;
-			overflow: auto;
-    		white-space: nowrap;
+		#thumbnails_wrapper{
+				
+			#outer_container {
 
-    		&::-webkit-scrollbar { 
-    			display: none; 
-			}
-			
-			a{
-				display: inline-block;
-			
-				.lesson {
-					position: relative;
-					float: left;
-					margin: 22px 30px;
-					width: 321px;
-					height: 156px;
-					border: 1px solid #8a8048;
-					border-radius: 10px;
+				.thumbScroller {
 
-					p {	
-						position: absolute;
-						top: 65px;
-						left: 18px;
-						color: #8a8048;
-						font-size: 75px;
-					}
+					.home-slider {
+						position: fixed;
+						bottom: 0;
+						height: 197px;
+						width: 100%;
+						background: url('../../assets/img/bg-video-slider.png') 100% 100%;
+						overflow: auto;
+			    		white-space: nowrap;
 
-					div {
-						position: absolute;
-						right: 10px;
-						top: 7px;
-						height: 140px;
-						width: 196px;
-						border: 1px solid #8a8048;
-						border-radius: 6px;
+			    		&::-webkit-scrollbar { 
+			    			display: none; 
+						}
+						
+						.content {
+							display: inline-block;
+						
+							.lesson {
+								position: relative;
+								float: left;
+								margin: 22px 30px;
+								width: 321px;
+								height: 156px;
+								border: 1px solid #8a8048;
+								border-radius: 10px;
 
-						img {
-							position: absolute;	
-							top: 28px;
-							right: 43px;
+								p {	
+									position: absolute;
+									top: 65px;
+									left: 18px;
+									color: #8a8048;
+									font-size: 75px;
+								}
+
+								div {
+									position: absolute;
+									right: 10px;
+									top: 7px;
+									height: 140px;
+									width: 196px;
+									border: 1px solid #8a8048;
+									border-radius: 6px;
+
+									img {
+										position: absolute;	
+										top: 28px;
+										right: 43px;
+									}
+								}
+							}
 						}
 					}
 				}

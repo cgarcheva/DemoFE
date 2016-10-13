@@ -30,7 +30,9 @@ module.exports = function(grunt) {
                     'node_modules/angular/angular.js',
                     'node_modules/angular-ui-router/release/angular-ui-router.js',
                     'node_modules/angular-local-storage/dist/angular-local-storage.js',
-                    'node_modules/angular-animate/angular-animate.js'
+                    'node_modules/angular-animate/angular-animate.js',
+                    'node_modules/jquery/dist/jquery.min.js',
+                    'thirdparty/sly.js'
                 ],
                 dest: 'build/js/thirdparty.js'
             },
@@ -46,7 +48,9 @@ module.exports = function(grunt) {
                     'node_modules/angular/angular.min.js',
                     'node_modules/angular-ui-router/release/angular-ui-router.min.js',
                     'node_modules/angular-local-storage/dist/angular-local-storage.js',
-                    'node_modules/angular-animate/angular-animate.js'
+                    'node_modules/angular-animate/angular-animate.js',
+                    'node_modules/jquery/dist/jquery.min.js',
+                    'thirdparty/sly.js'
                 ],
                 dest: 'build/js/thirdparty.min.js'
             },

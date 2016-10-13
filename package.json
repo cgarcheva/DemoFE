@@ -10,7 +10,8 @@
     "angular-local-storage": "^0.2.7",
     "angular-ui-router": "^0.2.18",
     "bootstrap": "^3.3.7",
-    "ui-bootstrap": "^0.1.5"
+    "ui-bootstrap": "^0.1.5",
+    "jquery": "^3.1.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.3",
