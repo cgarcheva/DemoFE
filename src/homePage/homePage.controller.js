@@ -44,19 +44,18 @@
 
 
         $scope.lessons = [
-        	{number: "1", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "2", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "3", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "4", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "5", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "6", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "7", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "8", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "9", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "10", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "11", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "12", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"},
-        	{number: "13", background: "#000", leftSideBG: "#000", leftSideSymbol: "check.png"}
+        	{number: "1", state: "passed", img_thumb: "Universe_and_planets_digital_art_wallpaper_denebola_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_denebola.jpg"},
+        	{number: "2", state: "current", img_thumb: "Universe_and_planets_digital_art_wallpaper_albireo_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_albireo.jpg"},
+        	{number: "3", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_church_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_church.jpg"},
+        	{number: "4", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_denebola_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_denebola.jpg"},
+        	{number: "5", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_dk_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_dk.jpg"},
+        	{number: "6", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_Hibernaculum_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_Hibernaculum.jpg"},
+        	{number: "7", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_lucernarium_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_lucernarium.jpg"},
+        	{number: "8", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_lux_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_lux.jpg"},
+        	{number: "9", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_moons_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_moons.jpg"},
+        	{number: "10", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_praedestinatio_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_praedestinatio.jpg"},
+        	{number: "11", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_transitorius_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_transitorius.jpg"},
+        	{number: "12", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_victimofgravity_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_victimofgravity.jpg"}
         ];
 
         //config
@@ -175,62 +174,43 @@
         }
 
 
-        $scope.changeImage = function(){
-         console.log($scope.$thumbClick);
-          event.preventDefault();
-          $this=$(this);
-          GetNextPrevImages($this);
-          GetImageTitle($this);
-          SwitchImage(this);
-          ShowHideNextPrev("show");
+        //Clicking on thumbnail changes the background image
+        $scope.changeImage = function(e){
+         // console.log(e.currentTarget);
+           event.preventDefault();
+          GetNextPrevImages(e.currentTarget);
+          SwitchImage(e.currentTarget);
         }; 
 
 
         //next/prev images keyboard arrows
-        if($scope.$keyboardNavigation =="on"){
-        $(document).keydown(function(ev) {
-            if(ev.keyCode == 39) { //right arrow
-                SwitchImage($scope.$outer_container.data("nextImage"));
-            $scope.$this=$("#outer_container a[href='"+"$scope.$outer_container".data("nextImage")+"']");
-            GetNextPrevImages($scope.$this);
-            GetImageTitle($scope.$this);
-                return false; // don't execute the default action (scrolling or whatever)
-            } else if(ev.keyCode == 37) { //left arrow
-                SwitchImage($scope.$outer_container.data("prevImage"));
-            $scope.$this=$("#outer_container a[href='"+"$scope.$outer_container".data("prevImage")+"']");
-            GetNextPrevImages($scope.$this);
-            GetImageTitle($scope.$this);
-                return false; // don't execute the default action (scrolling or whatever)
-            }
-        });
-        }
 
-        function ShowHideNextPrev(state){
-          if(state=="hide"){
-            $scope.$nextImageBtn.fadeOut();
-            $scope.$prevImageBtn.fadeOut();
-          } else {
-            $scope.$nextImageBtn.fadeIn();
-            $scope.$prevImageBtn.fadeIn();
-          }
-        }
-
-        //get image title
-        function GetImageTitle(elem){
-          $scope.title_attr=elem.children("img").attr("title"); //get image title attribute
-          $scope.$img_title.data("imageTitle", $scope.title_attr); //store image title
-        }
+        // if($scope.$keyboardNavigation =="on"){
+        // $(document).keydown(function(ev) {
+        //     if(ev.keyCode == 39) { //right arrow
+        //         SwitchImage($scope.$outer_container.data("nextImage"));
+        //     $scope.$this=$("#outer_container a[href='"+"$scope.$outer_container".data("nextImage")+"']");
+        //     GetNextPrevImages($scope.$this);
+        //         return false; // don't execute the default action (scrolling or whatever)
+        //     } else if(ev.keyCode == 37) { //left arrow
+        //         SwitchImage($scope.$outer_container.data("prevImage"));
+        //     $scope.$this=$("#outer_container a[href='"+"$scope.$outer_container".data("prevImage")+"']");
+        //     GetNextPrevImages($scope.$this);
+        //         return false; // don't execute the default action (scrolling or whatever)
+        //     }
+        // });
+        // }
 
         //get next/prev images
         function GetNextPrevImages(curr){
-          nextImage=curr.parents(".content").next().find("a").attr("href");
+          nextImage=curr.href;
           if(nextImage==null){ //if last image, next is first
-            $scope.nextImage=$(".content").first().find("a").attr("href");
+            $scope.nextImage=curr.first().find("a").attr("href");
           }
           $scope.$outer_container.data("nextImage",nextImage);
-          prevImage=curr.parents(".content").prev().find("a").attr("href");
+          prevImage=curr.href;
           if(prevImage==null){ //if first image, previous is last
-            $scope.prevImage=$(".content").last().find("a").attr("href");
+            $scope.prevImage=curr.last().find("a").attr("href");
           }
           $scope.$outer_container.data("prevImage",prevImage);
         }
@@ -289,17 +269,6 @@
             $($scope.theItem).css("margin-top",($scope.winHeight-i$scope.mageHeight)/2);
           }
         }
-
-        // // Image view mode function - fullscreen or normal size
-        // function ImageViewMode(theMode){
-        //   $toolbar.data("imageViewMode", theMode);
-        //   FullScreenBackground($bgimg,$bgimg.data("newImageW"),$bgimg.data("newImageH"));
-        //   if(theMode=="full"){
-        //     $toolbar_a.html("<img src='toolbar_n_icon.png' width='50' height='50'  />").attr("onClick", "ImageViewMode('normal');return false").attr("title", "Restore");
-        //   } else {
-        //     $toolbar_a.html("<img src='toolbar_fs_icon.png' width='50' height='50'  />").attr("onClick", "ImageViewMode('full');return false").attr("title", "Maximize");
-        //   }
-        // }
 
         // function to find element Position
         function findPos(obj) {
