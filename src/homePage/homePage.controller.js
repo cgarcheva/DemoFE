@@ -44,26 +44,21 @@
 
 
         $scope.lessons = [
-        	{number: "1", state: "passed", img_thumb: "Universe_and_planets_digital_art_wallpaper_denebola_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_denebola.jpg"},
-        	{number: "2", state: "current", img_thumb: "Universe_and_planets_digital_art_wallpaper_albireo_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_albireo.jpg"},
-        	{number: "3", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_church_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_church.jpg"},
-        	{number: "4", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_denebola_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_denebola.jpg"},
-        	{number: "5", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_dk_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_dk.jpg"},
-        	{number: "6", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_Hibernaculum_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_Hibernaculum.jpg"},
-        	{number: "7", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_lucernarium_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_lucernarium.jpg"},
-        	{number: "8", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_lux_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_lux.jpg"},
-        	{number: "9", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_moons_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_moons.jpg"},
-        	{number: "10", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_praedestinatio_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_praedestinatio.jpg"},
-        	{number: "11", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_transitorius_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_transitorius.jpg"},
-        	{number: "12", state: "lock", img_thumb: "Universe_and_planets_digital_art_wallpaper_victimofgravity_thumb.jpg", leftSideSymbol: "check.png", img_bg:"Universe_and_planets_digital_art_wallpaper_victimofgravity.jpg"}
+        	{number: "1", state: "passed", img_thumb: "1_thumb.jpg", img_bg:"1.jpg"},
+        	{number: "2", state: "current", img_thumb: "2_thumb.jpg", img_bg:"2.jpg"},
+        	{number: "3", state: "lock", img_thumb: "3_thumb.jpg", img_bg:"3.jpg"},
+        	{number: "4", state: "lock", img_thumb: "4_thumb.jpg", img_bg:"4.jpg"},
+        	{number: "5", state: "lock", img_thumb: "5_thumb.jpg", img_bg:"5.jpg"},
+          {number: "6", state: "lock", img_thumb: "6_thumb.jpg", img_bg:"6.jpg"},
+          {number: "7", state: "lock", img_thumb: "7_thumb.jpg", img_bg:"7.jpg"},
+          {number: "8", state: "lock", img_thumb: "8_thumb.jpg", img_bg:"8.jpg"},
+          {number: "9", state: "lock", img_thumb: "9_thumb.jpg", img_bg:"9.jpg"},
+          {number: "10", state: "lock", img_thumb: "10_thumb.jpg", img_bg:"10.jpg"},
         ];
 
         //config
         //set default images view mode
         $scope.$defaultViewMode="full"; //full, normal, original
-        $scope.$tsMargin=30; //first and last thumbnail margin (for better cursor interaction) 
-        // $scope.$scrollEasing=600; //scroll easing amount (0 for no easing) 
-        // $scope.$scrollEasingType="easeOutCirc"; //scroll easing type 
         $scope.$thumbnailsContainerOpacity=0.8; //thumbnails area default opacity
         $scope.$thumbnailsContainerMouseOutOpacity=1; //thumbnails area opacity on mouse out
         $scope.$thumbnailsOpacity=0.6; //thumbnails default opacity
@@ -88,70 +83,63 @@
         $scope.$nextImageBtn=$(".nextImageBtn");
         $scope.$prevImageBtn=$(".prevImageBtn");
 
+        //thumbnail scroller
+        // $scope.$thumbScroller_container.css("marginLeft",$scope.$tsMargin+"px"); //add margin
+        $scope.sliderLeft= $scope.$thumbScroller_container.position().left;
+        $scope.sliderWidth=  $scope.$outer_container.width();
+        $scope.$thumbScroller.css("width",$scope.sliderWidth);
+        $scope.totalContent=0;
+        $scope.fadeSpeed=200;
+        
+        $scope.$the_outer_container=document.getElementById("outer_container");
+        $scope.$placement=findPos($scope.$the_outer_container);
+        
+        $scope.$thumbScroller_content.each(function () {
+          $scope.$this=$(this);
+          $scope.totalContent+=$this.innerWidth(); $scope.$thumbScroller_container.css("width",$scope.totalContent);
+          $scope.$this.children().children().children(".thumb").fadeTo($scope.fadeSpeed, $scope.$thumbnailsOpacity);
+        });
 
-          $scope.$toolbar.data("imageViewMode",'$scope.$defaultViewMode'); //default view mode
-          if($scope.$defaultViewMode =="full"){
-            $scope.$toolbar_a.html("<img src='toolbar_n_icon.png' width='50' height='50'  />").attr("onClick", "ImageViewMode('normal');return false").attr("title", "Restore");
-          } else {
-            $scope.$toolbar_a.html("<img src='toolbar_fs_icon.png' width='50' height='50'  />").attr("onClick", "ImageViewMode('full');return false").attr("title", "Maximize");
+        
+        $scope.$thumbnails_wrapper.fadeTo($scope.fadeSpeed, $scope.$thumbnailsContainerOpacity);
+        $scope.$thumbnails_wrapper.hover(
+          function(){ //mouse over
+            $this=$(this);
+            $this.stop().fadeTo("slow", 1);
+          },
+          function(){ //mouse out
+            $this=$(this);
+            $this.stop().fadeTo("slow", $scope.$thumbnailsContainerMouseOutOpacity);
           }
-          //thumbnail scroller
-          $scope.$thumbScroller_container.css("marginLeft",$scope.$tsMargin+"px"); //add margin
-          $scope.sliderLeft= $scope.$thumbScroller_container.position().left;
-          $scope.sliderWidth=  $scope.$outer_container.width();
-          $scope.$thumbScroller.css("width",$scope.sliderWidth);
-          $scope.totalContent=0;
-          $scope.fadeSpeed=200;
-          
-          $scope.$the_outer_container=document.getElementById("outer_container");
+        );
+
+        $scope.$thumbScroller_thumb.hover(
+          function(){ //mouse over
+            $this=$(this);
+            $this.stop().fadeTo($scope.fadeSpeed, 1);
+          },
+          function(){ //mouse out
+            $this=$(this);
+            $this.stop().fadeTo($scope.fadeSpeed, $scope.$thumbnailsOpacity);
+          }
+        );
+
+        //on window resize scale image and reset thumbnail scroller
+        $(window).resize(function() {
+          FullScreenBackground("#bgimg",$scope.$bgimg.data("newImageW"), $scope.$bgimg.data("newImageH"));
+          $scope.$thumbScroller_container.stop().animate({left: $scope.sliderLeft}, 400,"easeOutCirc"); 
+          $scope.newWidth=$scope.$outer_container.width();
+          $scope.$thumbScroller.css("width",$scope.newWidth);
+          $scope.sliderWidth=$scope.newWidth;
           $scope.$placement=findPos($scope.$the_outer_container);
-          
-          $scope.$thumbScroller_content.each(function () {
-            $scope.$this=$(this);
-            $scope.totalContent+=$this.innerWidth(); $scope.$thumbScroller_container.css("width",$scope.totalContent);
-            $scope.$this.children().children().children(".thumb").fadeTo($scope.fadeSpeed, $scope.$thumbnailsOpacity);
-          });
+        });
 
-          
-          $scope.$thumbnails_wrapper.fadeTo($scope.fadeSpeed, $scope.$thumbnailsContainerOpacity);
-          $scope.$thumbnails_wrapper.hover(
-            function(){ //mouse over
-              $this=$(this);
-              $this.stop().fadeTo("slow", 1);
-            },
-            function(){ //mouse out
-              $this=$(this);
-              $this.stop().fadeTo("slow", $scope.$thumbnailsContainerMouseOutOpacity);
-            }
-          );
-
-          $scope.$thumbScroller_thumb.hover(
-            function(){ //mouse over
-              $this=$(this);
-              $this.stop().fadeTo($scope.fadeSpeed, 1);
-            },
-            function(){ //mouse out
-              $this=$(this);
-              $this.stop().fadeTo($scope.fadeSpeed, $scope.$thumbnailsOpacity);
-            }
-          );
-
-          //on window resize scale image and reset thumbnail scroller
-          $(window).resize(function() {
-            FullScreenBackground("#bgimg",$scope.$bgimg.data("newImageW"), $scope.$bgimg.data("newImageH"));
-            $scope.$thumbScroller_container.stop().animate({left: $scope.sliderLeft}, 400,"easeOutCirc"); 
-            $scope.newWidth=$scope.$outer_container.width();
-            $scope.$thumbScroller.css("width",$scope.newWidth);
-            $scope.sliderWidth=$scope.newWidth;
-            $scope.$placement=findPos($scope.$the_outer_container);
-          });
-
-          //load 1st image
-          $scope.the1stImg = new Image();
-          $scope.the1stImg.onload = CreateDelegate($scope.the1stImg, theNewImg_onload);
-          $scope.the1stImg.src = $scope.$bgimg.attr("src");
-          $scope.$outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
-          $scope.$outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
+        //load 1st image
+        $scope.the1stImg = new Image();
+        $scope.the1stImg.onload = CreateDelegate($scope.the1stImg, theNewImg_onload);
+        $scope.the1stImg.src = $scope.$bgimg.attr("src");
+        $scope.$outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
+        $scope.$outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
     
 
         function BackgroundLoad($this,imageWidth,imageHeight,imgSrc){
@@ -176,7 +164,7 @@
 
         //Clicking on thumbnail changes the background image
         $scope.changeImage = function(e){
-         // console.log(e.currentTarget);
+         // console.log(e.currentTarget); 
            event.preventDefault();
           GetNextPrevImages(e.currentTarget);
           SwitchImage(e.currentTarget);

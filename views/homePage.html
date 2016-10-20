@@ -1,19 +1,17 @@
 <div ng-controller="HomeController" class="home-page">
+
 	<!-- lesson preview -->
     <div id="bg" class="home-video">
-    	<!-- <a href="#" class="col-md-offset-1 col-xs-offset-1"><img src="../assets/img/play-button.png" alt=""></a> -->
-
-<!-- 		<div id="bg"><a href="#" class="nextImageBtn" title="next"></a><a href="#" class="prevImageBtn" title="previous"></a><img src="../assets/img/lesson_pic.png" width="1680" height="1050" alt="Denebola" title="Denebola" id="bgimg" /></div>
-		 -->
-    	<div class="container-fluid container-button">
-	    	<div class="row button">
+    	<div class="container-fluid container-plyButton">
+	    	<div class="row plyButton">
 		    	<a href="#" class="play-button pagination-centered col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-4 col-xs-offset-1 col-xs-8">
+		    	<!-- <img src="../assets/img/Play_Icon.png" alt=""> -->
 	    	</a>
 	    	</div>
     	</div>
     		
     	
-    	<img src="../assets/img/Universe_and_planets_digital_art_wallpaper_denebola.jpg" alt="Denebola" title="Denebola"  width="1300" height="700" id="bgimg" />
+    	<img src="../assets/img/1.jpg" class="" alt="Denebola" title="Denebola"  width="1300" height="700" id="bgimg" />
 		
 		<div id="preloader"><img src="../assets/img/ajax-loader_dark.gif" width="32" height="32" /></div>
 
@@ -39,13 +37,20 @@
 			<div class="thumbScroller" id="basic">
 				<div class="container home-slider">
 					<div class="content"  ng-repeat="lesson in lessons"  sly-horizontal-repeat >
-						<div class="lesson">
-							<p>{{ lesson.number }}</p>
+						<div class="lesson {{lesson.state}}">
 							<a ng-click="changeImage($event)" ng-href="../assets/img/{{ lesson.img_bg }}">
+							<div class="drop-down">
+								<p>In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. 
+								 </p>
+								 <p>Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed. 
+								</p>
+
+							</div>
+							<p class="lesson-number">{{ lesson.number }}</p>
 							<div class="lesson-right-part" >
 								<img ng-src="../assets/img/{{ lesson.img_thumb }}" title="Lesson" alt="Lesson" class="thumb" />
 
-								<img class="{{lesson.state}}" ng-src="../assets/img/{{ lesson.state }}.png">
+								<img class="{{lesson.state}} icon" ng-src="../assets/img/{{ lesson.state }}.png">
 							</div>
 							</a>
 						</div>
@@ -54,5 +59,7 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- end horizontal-scroll -->
 
 </div>

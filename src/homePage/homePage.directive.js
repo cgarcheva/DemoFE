@@ -1,11 +1,10 @@
  (function() {
 
-     'use strict';
+'use strict';
 
-  var app = angular.module("hwEnglish.home");
+var app = angular.module("hwEnglish.home");
 
-
-    var defaultOptions = {
+var defaultOptions = {
 	itemNav: 'basic',
 	smart: 1,
 	activateOn: 'click',
@@ -22,70 +21,6 @@
 	clickBar: 1
 };
 
-
-  
-     
-app.directive('slyHorizontal', function(){
-	return {
-		restrict: 'A',
-		link: function (scope, el, attrs){
-			$(window).on("resize", function() { frame.sly("reload"); });
-			var frame = $(el);
-			var wrap  = $(el[0]).parent();
-
-			defaultOptions.horizontal = 1;
-
-			var defaultControls = {
-				scrollBar: wrap.find('.scrollbar') || null,
-				pagesBar: wrap.find('.pages') || null,
-				forward: wrap.find('.forward') || null,
-				backward: wrap.find('.backward') || null,
-				prev: wrap.find('.prev') || null,
-				next: wrap.find('.next') || null,
-				prevPage: wrap.find('.prevPage') || null,
-				nextPage: wrap.find('.nextPage') || null
-			};
-			// Merge parts into options object for sly argument
-			var options =  $.extend({}, defaultOptions, defaultControls, scope.$eval(attrs.slyOptions));
-			var callback = scope.$eval(attrs.slyCallback) || function(){};
-			// Call Sly on frame
-			frame.sly(options, callback());
-			//         scope.$emit('ngRepeatFinished');
-			//     });
-			// }
-		}
-	};
-});
-
-app.directive('slyVertical', function(){
-	return {
-		restrict: 'A',
-		link: function (scope, el, attrs){
-
-			var frame = $(el);
-			var wrap  = $(el[0]).parent();
-			defaultOptions.horizontal = 0;
-
-			var defaultControls = {
-				scrollBar: wrap.find('.scrollbar') || null,
-				pagesBar: wrap.find('.pages') || null,
-				forward: wrap.find('.forward') || null,
-				backward: wrap.find('.backward') || null,
-				prev: wrap.find('.prev') || null,
-				next: wrap.find('.next') || null,
-				prevPage: wrap.find('.prevPage') || null,
-				nextPage: wrap.find('.nextPage') || null
-			};
-			
-			// Merge parts into options object for sly argument
-			var options =  $.extend({}, defaultOptions, defaultControls, scope.$eval(attrs.slyOptions));
-			var callback = scope.$eval(attrs.slyCallback) || function(){};
-			// Call Sly on frame
-			frame.sly(options, callback());
-		}
-	};
-});
-
 /** directives for ng-repeat
 * set to the ng-repeat row
 * checks if the last item is rendered before calling sly
@@ -94,127 +29,35 @@ app.directive('slyHorizontalRepeat',  function($timeout){
 	return {
 		restrict: 'A',
 		link: function (scope, el, attrs){
-			var frame = $(el);
-			$(window).on("resize", function() { frame.sly("reload"); });
-			if (scope.$last === true) {
+			// var frame = $(el);
+			// $(window).on("resize", function() { frame.sly("reload"); });
+			// if (scope.$last === true) {
 			 	$timeout(function () {
 
-			var frame = $(el[0]).parent().parent();
-			var wrap  = $(el[0]).parent().parent().parent();
+					var frame = $(el[0]).parent().parent();
+					var wrap  = $(el[0]).parent().parent().parent();
 
-			defaultOptions.horizontal = 1;
+					defaultOptions.horizontal = 1;
 
-			var defaultControls = {
-				scrollBar: wrap.find('.scrollbar') || null,
-				pagesBar: wrap.find('.pages') || null,
-				forward: wrap.find('.forward') || null,
-				backward: wrap.find('.backward') || null,
-				prev: wrap.find('.prev') || null,
-				next: wrap.find('.next') || null,
-				prevPage: wrap.find('.prevPage') || null,
-				nextPage: wrap.find('.nextPage') || null
-			};
-			// Merge parts into options object for sly argument
-			var options =  $.extend({}, defaultOptions, defaultControls, scope.$eval(attrs.slyOptions));
-			var callback = scope.$eval(attrs.slyCallback) || function(){};
-			// Call Sly on frame
-			frame.sly(options, callback());
-			//         scope.$emit('ngRepeatFinished');
-			    });
-			}
+					var defaultControls = {
+						scrollBar: wrap.find('.scrollbar') || null,
+						pagesBar: wrap.find('.pages') || null,
+						forward: wrap.find('.forward') || null,
+						backward: wrap.find('.backward') || null,
+						prev: wrap.find('.prev') || null,
+						next: wrap.find('.next') || null,
+						prevPage: wrap.find('.prevPage') || null,
+						nextPage: wrap.find('.nextPage') || null
+					};
+					// Merge parts into options object for sly argument
+					var options =  $.extend({}, defaultOptions, defaultControls, scope.$eval(attrs.slyOptions));
+					var callback = scope.$eval(attrs.slyCallback) || function(){};
+					// Call Sly on frame
+					frame.sly(options, callback());
+					// scope.$emit('ngRepeatFinished');
+				});
+			// }
 		}
 	};
 });
-
-
-app.directive('slyVerticalRepeat', function($timeout){
-	return {
-		restrict: 'A',
-		link: function (scope, el, attrs){
-            if (scope.$last === true) {
-                $timeout(function() {
-                    var frame = $(el[0]).parent().parent();
-                    var wrap = $(el[0]).parent().parent().parent();
-
-                    defaultOptions.horizontal = 0;
-
-                    var defaultControls = {
-                        scrollBar: wrap.find('.scrollbar') || null,
-                        pagesBar: wrap.find('.pages') || null,
-                        forward: wrap.find('.forward') || null,
-                        backward: wrap.find('.backward') || null,
-                        prev: wrap.find('.prev') || null,
-                        next: wrap.find('.next') || null,
-                        prevPage: wrap.find('.prevPage') || null,
-                        nextPage: wrap.find('.nextPage') || null
-                    };
-
-                    // Merge parts into options object for sly argument
-                    var options = $.extend({}, defaultOptions, defaultControls, scope.$eval(attrs.slyOptions));
-                    var callback = scope.$eval(attrs.slyCallback) || function(){};
-                    // Call Sly on frame
-                    frame.sly(options, callback());
-                });
-            }
-		}
-	};
-});
-
-//METHODS
-
-//Positioning
-app.directive('slyToBegin', function(){ //slyToStart doesnt seem to work :( 
-	return {
-		restrict: 'A',
-		link: function (scope, el, attrs){
-			el.on('click', function () {
-				// Need to pass the sly frame element Id
-				var frame = $('#'+attrs.slyFrame);
-				var item = attrs.slyDataItem || undefined;
-				
-				// Animate a particular item to the start of the frame.
-				// If no item is provided, the whole content will be animated.
-				frame.sly('toStart', item);
-			});
-
-		}
-	};
-});
-
-app.directive('slyToCenter', function(){
-	return {
-		restrict: 'A',
-		link: function (scope, el, attrs){
-			el.on('click', function () {
-				// Need to pass the sly frame element Id
-				var frame = $('#'+attrs.slyFrame);
-				var item = attrs.slyDataItem || undefined;
-				// Animate a particular item to the center of the frame.
-				// If no item is provided, the whole content will be animated.
-				frame.sly('toCenter', item);
-			});
-
-		}
-	};
-});
-
-app.directive('slyToEnd', function(){
-	return {
-		restrict: 'A',
-		link: function (scope, el, attrs){
-			el.on('click', function () {
-				// Need to pass the sly frame element Id
-				var frame = $('#'+attrs.slyFrame);
-				var item = attrs.slyDataItem || undefined;
-				
-				// Animate a particular item to the center of the frame.
-				// If no item is provided, the whole content will be animated.
-				frame.sly('toEnd', item);
-			});
-
-		}
-	};
-});
-
-
- })();
+})();
