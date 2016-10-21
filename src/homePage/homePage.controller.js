@@ -44,16 +44,16 @@
 
 
         $scope.lessons = [
-        	{number: "1", state: "passed", img_thumb: "1_thumb.jpg", img_bg:"1.jpg"},
-        	{number: "2", state: "current", img_thumb: "2_thumb.jpg", img_bg:"2.jpg"},
-        	{number: "3", state: "lock", img_thumb: "3_thumb.jpg", img_bg:"3.jpg"},
-        	{number: "4", state: "lock", img_thumb: "4_thumb.jpg", img_bg:"4.jpg"},
-        	{number: "5", state: "lock", img_thumb: "5_thumb.jpg", img_bg:"5.jpg"},
-          {number: "6", state: "lock", img_thumb: "6_thumb.jpg", img_bg:"6.jpg"},
-          {number: "7", state: "lock", img_thumb: "7_thumb.jpg", img_bg:"7.jpg"},
-          {number: "8", state: "lock", img_thumb: "8_thumb.jpg", img_bg:"8.jpg"},
-          {number: "9", state: "lock", img_thumb: "9_thumb.jpg", img_bg:"9.jpg"},
-          {number: "10", state: "lock", img_thumb: "10_thumb.jpg", img_bg:"10.jpg"},
+        	{number: "1", state: "passed", img_thumb: "1_thumb.jpg", img_bg:"1.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+        	{number: "2", state: "current", img_thumb: "2_thumb.jpg", img_bg:"2.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+        	{number: "3", state: "lock", img_thumb: "3_thumb.jpg", img_bg:"3.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+        	{number: "4", state: "lock", img_thumb: "4_thumb.jpg", img_bg:"4.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+        	{number: "5", state: "lock", img_thumb: "5_thumb.jpg", img_bg:"5.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+          {number: "6", state: "lock", img_thumb: "6_thumb.jpg", img_bg:"6.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+          {number: "7", state: "lock", img_thumb: "7_thumb.jpg", img_bg:"7.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+          {number: "8", state: "lock", img_thumb: "8_thumb.jpg", img_bg:"8.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+          {number: "9", state: "lock", img_thumb: "9_thumb.jpg", img_bg:"9.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."},
+          {number: "10", state: "lock", img_thumb: "10_thumb.jpg", img_bg:"10.jpg", info:"In descriptive writing, the author does not tell the reader what was seen, felt, tested, smelled, or heard. Rather, he describes something that he experienced and, through his choice of words, makes it seem real. In other words, descriptive writing is vivid, colorful, and detailed."}
         ];
 
         //config
