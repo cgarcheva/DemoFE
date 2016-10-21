@@ -26,9 +26,6 @@ var defaultOptions = {
 * checks if the last item is rendered before calling sly
 */
 app.directive('slyHorizontalRepeat',  function($timeout){
-	console.log(defaultOptions.startAt);
-	defaultOptions.startAt = angular(element.getElementsByClassName("current"));
-	console.log(defaultOptions.startAt);
 	return {
 		restrict: 'A',
 		link: function (scope, el, attrs){
