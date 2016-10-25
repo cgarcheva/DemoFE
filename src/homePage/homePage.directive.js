@@ -36,8 +36,12 @@ app.directive('slyHorizontalRepeat',  function($timeout){
 
 					var frame = $(el[0]).parent().parent();
 					var wrap  = $(el[0]).parent().parent().parent();
+					var currentItem  = wrap.find('.current');
+					var currentNumber = currentItem.find('.lesson-number').text();
 
 					defaultOptions.horizontal = 1;
+
+					defaultOptions.startAt = currentNumber - 1;
 
 					var defaultControls = {
 						scrollBar: wrap.find('.scrollbar') || null,
@@ -49,6 +53,8 @@ app.directive('slyHorizontalRepeat',  function($timeout){
 						prevPage: wrap.find('.prevPage') || null,
 						nextPage: wrap.find('.nextPage') || null
 					};
+
+					
 					// Merge parts into options object for sly argument
 					var options =  $.extend({}, defaultOptions, defaultControls, scope.$eval(attrs.slyOptions));
 					var callback = scope.$eval(attrs.slyCallback) || function(){};
