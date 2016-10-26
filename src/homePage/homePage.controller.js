@@ -134,12 +134,24 @@
           $scope.$placement=findPos($scope.$the_outer_container);
         });
 
+
         //load 1st image
         $scope.the1stImg = new Image();
+
+        angular.forEach($scope.lessons, function(value, key){
+          value = $scope.lessons[key].state;
+
+          if (value == "current" ){
+            $scope.the1stImg.src = "../assets/img/"+$scope.lessons[key].img_bg;
+          }
+         });
+
         $scope.the1stImg.onload = CreateDelegate($scope.the1stImg, theNewImg_onload);
-        $scope.the1stImg.src = $scope.$bgimg.attr("src");
-        $scope.$outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
-        $scope.$outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
+
+        // $scope.$outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
+        // $scope.$outer_container.data("aaa",$(".content"));
+        // console.log($scope.$outer_container.data("aaa"));
+        // $scope.$outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
     
 
         function BackgroundLoad($this,imageWidth,imageHeight,imgSrc){
@@ -166,37 +178,53 @@
         $scope.changeImage = function(e){
          // console.log(e.currentTarget); 
            event.preventDefault();
-          GetNextPrevImages(e.currentTarget);
-          SwitchImage(e.currentTarget);
+          GetNextPrevImages(e.currentTarget.href);
+          SwitchImage(e.currentTarget.href);
         }; 
 
 
         //next/prev images keyboard arrows
 
-        // if($scope.$keyboardNavigation =="on"){
-        // $(document).keydown(function(ev) {
-        //     if(ev.keyCode == 39) { //right arrow
-        //         SwitchImage($scope.$outer_container.data("nextImage"));
-        //     $scope.$this=$("#outer_container a[href='"+"$scope.$outer_container".data("nextImage")+"']");
-        //     GetNextPrevImages($scope.$this);
-        //         return false; // don't execute the default action (scrolling or whatever)
-        //     } else if(ev.keyCode == 37) { //left arrow
-        //         SwitchImage($scope.$outer_container.data("prevImage"));
-        //     $scope.$this=$("#outer_container a[href='"+"$scope.$outer_container".data("prevImage")+"']");
-        //     GetNextPrevImages($scope.$this);
-        //         return false; // don't execute the default action (scrolling or whatever)
-        //     }
-        // });
-        // }
+        if($scope.$keyboardNavigation =="on"){
+        $(document).keydown(function(ev) {
+          var currentElem = $scope.$outer_container.find(".active");
+         
+            if(ev.keyCode == 39) { //right arrow
+               var nextElem = currentElem.next();
+     
+               var nextImage = nextElem.find("a");
+                nextElem.addClass("active");
+
+                if(nextImage.length !== 0 ){
+                    currentElem.removeClass("active");
+                 GetNextPrevImages(nextImage[0].href);
+                 SwitchImage(nextImage[0].href);
+                 }else{
+                  return false; 
+                 }
+            } else if(ev.keyCode == 37) { //left arrow
+                var prevElem = currentElem.prev();
+               var prevImage = prevElem.find("a");
+                prevElem.addClass("active");
+                if(prevImage.length !== 0 ){
+                    currentElem.removeClass("active");
+                 GetNextPrevImages(prevImage[0].href);
+                 SwitchImage(prevImage[0].href);
+               }else{
+                  return false; 
+                 }
+            }
+        });
+        }
 
         //get next/prev images
         function GetNextPrevImages(curr){
-          nextImage=curr.href;
+          nextImage=curr;
           if(nextImage==null){ //if last image, next is first
             $scope.nextImage=curr.first().find("a").attr("href");
           }
           $scope.$outer_container.data("nextImage",nextImage);
-          prevImage=curr.href;
+          prevImage=curr;
           if(prevImage==null){ //if first image, previous is last
             $scope.prevImage=curr.last().find("a").attr("href");
           }
