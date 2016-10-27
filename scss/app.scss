@@ -11,6 +11,7 @@ html {
 	body {
 		background: #000;
 		font-family: 'Poiret One', sans-serif;
+		color: wheat;
 
 		/* start navigation's style */
 
@@ -19,6 +20,7 @@ html {
 			background: url('../../assets/img/bg-header.png');
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
+			color: black;
 
 			.navbar{
 				margin-bottom: 0;
@@ -164,6 +166,7 @@ html {
 							    width: 100%;
 							    height: 100%;
 							    background: black;
+							    z-index: 100;
 						    img{
 						        position: absolute;
 							    top: 50%;
