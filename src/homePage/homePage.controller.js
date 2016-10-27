@@ -82,6 +82,7 @@
         $scope.$img_title=$("#img_title");
         $scope.$nextImageBtn=$(".nextImageBtn");
         $scope.$prevImageBtn=$(".prevImageBtn");
+        $scope.$playButton=$(".play-button");
 
         //thumbnail scroller
         // $scope.$thumbScroller_container.css("marginLeft",$scope.$tsMargin+"px"); //add margin
@@ -139,20 +140,19 @@
         $scope.the1stImg = new Image();
 
         angular.forEach($scope.lessons, function(value, key){
+
           value = $scope.lessons[key].state;
+          var lessonNumber =  $scope.lessons[key].number;
 
           if (value == "current" ){
+               var href = "#/lesson"+lessonNumber;
+             $scope.$playButton.attr('href', href);
+
             $scope.the1stImg.src = "../assets/img/"+$scope.lessons[key].img_bg;
           }
          });
 
         $scope.the1stImg.onload = CreateDelegate($scope.the1stImg, theNewImg_onload);
-
-        // $scope.$outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
-        // $scope.$outer_container.data("aaa",$(".content"));
-        // console.log($scope.$outer_container.data("aaa"));
-        // $scope.$outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
-    
 
         function BackgroundLoad($this,imageWidth,imageHeight,imgSrc){
           $this.fadeOut("fast",function(){
@@ -176,9 +176,11 @@
 
         //Clicking on thumbnail changes the background image
         $scope.changeImage = function(e){
-         // console.log(e.currentTarget); 
            event.preventDefault();
-          GetNextPrevImages(e.currentTarget.href);
+
+          var currentLesson = this.lesson;
+          applyLessonHref(currentLesson);
+
           SwitchImage(e.currentTarget.href);
         }; 
 
@@ -191,13 +193,18 @@
          
             if(ev.keyCode == 39) { //right arrow
                var nextElem = currentElem.next();
-     
                var nextImage = nextElem.find("a");
+
+            
                 nextElem.addClass("active");
 
                 if(nextImage.length !== 0 ){
                     currentElem.removeClass("active");
-                 GetNextPrevImages(nextImage[0].href);
+
+                        var nextclasses = nextImage.attr('class').split(' ');
+                  var nextLessonElem = {state: nextclasses[0]  , number: nextclasses[1] };
+
+                 applyLessonHref(nextLessonElem);
                  SwitchImage(nextImage[0].href);
                  }else{
                   return false; 
@@ -205,10 +212,15 @@
             } else if(ev.keyCode == 37) { //left arrow
                 var prevElem = currentElem.prev();
                var prevImage = prevElem.find("a");
+
+               
+
                 prevElem.addClass("active");
                 if(prevImage.length !== 0 ){
                     currentElem.removeClass("active");
-                 GetNextPrevImages(prevImage[0].href);
+                       var prevclasses = prevImage.attr('class').split(' ');
+                  var prevLessonElem = {state: prevclasses[0]  , number: prevclasses[1] };
+                 applyLessonHref(prevLessonElem);
                  SwitchImage(prevImage[0].href);
                }else{
                   return false; 
@@ -218,17 +230,17 @@
         }
 
         //get next/prev images
-        function GetNextPrevImages(curr){
-          nextImage=curr;
-          if(nextImage==null){ //if last image, next is first
-            $scope.nextImage=curr.first().find("a").attr("href");
+        function applyLessonHref(curr){
+          var lessonNumber = curr.number; 
+          var lessonState = curr.state;
+          if (lessonState == "lock" ){
+            $scope.$playButton.hide();
+          }else{
+            $scope.$playButton.show();
+              var href = "#/lesson"+lessonNumber;
+             $scope.$playButton.attr('href', href);
           }
-          $scope.$outer_container.data("nextImage",nextImage);
-          prevImage=curr;
-          if(prevImage==null){ //if first image, previous is last
-            $scope.prevImage=curr.last().find("a").attr("href");
-          }
-          $scope.$outer_container.data("prevImage",prevImage);
+
         }
 
         //switch image

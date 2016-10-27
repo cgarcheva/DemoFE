@@ -4,7 +4,7 @@
     <div id="bg" class="home-video">
     	<div class="container-fluid container-plyButton">
 	    	<div class="row plyButton">
-		    	<a href="#" class="play-button pagination-centered col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-5 col-xs-offset-0 col-xs-7">
+		    	<a href="#/" class="play-button pagination-centered col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-5 col-xs-offset-0 col-xs-7">
 		    	<!-- <img src="../assets/img/Play_Icon.png" alt=""> -->
 	    	</a>
 	    	</div>
@@ -38,7 +38,7 @@
 				<div class="container home-slider">
 					<div class="content"  ng-repeat="lesson in lessons"  sly-horizontal-repeat >
 						<div class="lesson {{lesson.state}}">
-							<a ng-click="changeImage($event)" ng-href="../assets/img/{{ lesson.img_bg }}">
+							<a ng-click="changeImage($event)" class="{{lesson.state}} {{lesson.number}}" ng-href="../assets/img/{{ lesson.img_bg }}">
 							<div class="drop-down">
 								<p>{{ lesson.info }}</p>
 
