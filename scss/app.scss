@@ -204,11 +204,10 @@ html {
 
 					.viewport {
 						position: absolute;
-						height: 100px;
 						white-space: nowrap;
 
 						&.moving {
-						   animation: moveLeft infinite 50s linear;
+						  animation: moveSlideshow 45s linear infinite;
 						}
 
 						.box {
@@ -230,27 +229,11 @@ html {
 						}
 					}
 				}
-
-				@keyframes moveLeft {
-					0% {
-						transform: translateX(0)
+					@keyframes moveSlideshow {
+					  100% { 
+					    transform: translateX(-72.99999999%);  
+					  }
 					}
-					20% {
-						transform: translateX(-20%)
-					}
-					40% {
-						transform: translateX(-40%)
-					}
-					60% {
-						transform: translateX(-60%)
-					}
-					80% {
-						transform: translateX(-80%)
-					}
-					100% {
-						transform: translateX(-100%)
-					}
-				}
 			}
 
 		#thumbnails_wrapper{
