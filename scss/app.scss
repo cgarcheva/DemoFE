@@ -20,19 +20,19 @@ html {
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
 
-			.navbar{
+			.navbar {
 				margin-bottom: 0;
 				background:transparent;
 				border-bottom: 0;
 
-				.navbar-item{				
+				.navbar-item {				
 					display: inline-block;
 
-				&.navbar-container{
-				 	margin-top: 7px;
-				 }
+					&.navbar-container {
+					 	margin-top: 10px;
+					}
+				}	
 
-				}				
 					a {
 						display: inline-block;
 					}
@@ -116,7 +116,7 @@ html {
 
 		/* end navigation's style */
 
-		.home-page{
+		.home-page {
 
 			.home-video {
 				position: relative;
@@ -138,23 +138,21 @@ html {
 									min-width: 170px;
 								    max-width: 320px;
 								    height: 177px;
-    								border-radius: 67px;
-							    	background: url('../../assets/img/Play_Icon.png') rgba(223,204,146,1)  center center  no-repeat;
-									background: url('../../assets/img/Play_Icon.png') center center  no-repeat,  -moz-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
-									background:  url('../../assets/img/Play_Icon.png') center center  no-repeat, -webkit-gradient(left top, left bottom, color-stop(0%, rgba(223,204,146,1)), color-stop(100%, rgba(109,101,61,1)));
-									background:  url('../../assets/img/Play_Icon.png') center center  no-repeat, -webkit-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
-									background:  url('../../assets/img/Play_Icon.png') center center  no-repeat, -o-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
-									background:  url('../../assets/img/Play_Icon.png') center center  no-repeat, -ms-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
-									background:  url('../../assets/img/Play_Icon.png') center center  no-repeat, linear-gradient(to bottom, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
+    								border-radius: 52px;
+							    	background: url('../../assets/img/Play_Icon.png') rgba(223,204,146,1)  53% center  no-repeat;
+									background: url('../../assets/img/Play_Icon.png') 53% center  no-repeat,  -moz-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
+									background:  url('../../assets/img/Play_Icon.png') 53% center  no-repeat, -webkit-gradient(left top, left bottom, color-stop(0%, rgba(223,204,146,1)), color-stop(100%, rgba(109,101,61,1)));
+									background:  url('../../assets/img/Play_Icon.png') 53% center  no-repeat, -webkit-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
+									background:  url('../../assets/img/Play_Icon.png') 53% center  no-repeat, -o-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
+									background:  url('../../assets/img/Play_Icon.png') 53% center  no-repeat, -ms-linear-gradient(top, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
+									background:  url('../../assets/img/Play_Icon.png') 53% center  no-repeat, linear-gradient(to bottom, rgba(223,204,146,1) 0%, rgba(109,101,61,1) 100%);
 									filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfcc92', endColorstr='#6d653d', GradientType=0 );
 							    	z-index: 1;
 								    position: absolute;
 								    left: 5%;
 								    bottom: 14%;
-
 							    }
 					    	}
-					    
 			    		}
 
 			    		#preloader {
@@ -164,7 +162,7 @@ html {
 							    width: 100%;
 							    height: 100%;
 							    background: black;
-						    img{
+						    img {
 						        position: absolute;
 							    top: 50%;
 							    left: 50%;
@@ -183,7 +181,7 @@ html {
 
 			.advertisement {
 				position: fixed;
-    			bottom: 27%;
+    			bottom: 26%;
     			top: auto;
 				width: 100%;
 				height: 22px;
@@ -248,8 +246,7 @@ html {
 						transform: translateX(-100%)
 					}
 				}
-
-		}
+			}
 
 		#thumbnails_wrapper{
 
@@ -261,7 +258,6 @@ html {
 					.home-slider {
 						position: fixed;
 						bottom: 0;
-						// overflow: auto;
 						height: 27%;
 			    		white-space: nowrap;
 
@@ -279,7 +275,7 @@ html {
 								width: 321px;
 								height: 87%;
 								border: 1px solid #8a8048;
-								border-radius: 10px;
+								border-radius: 6px;
 
 								.icon {
 									position: absolute;	
@@ -287,13 +283,13 @@ html {
 								
 								&.passed {
 									background: url('../../assets/img/BG-passedLesson.png'); 
-									  -webkit-background-size: cover;
-									  -moz-background-size: cover;
-									  -o-background-size: cover;
-									  background-size: cover;
+									-webkit-background-size: cover;
+									-moz-background-size: cover;
+									-o-background-size: cover;
+									background-size: cover;
 									
 									.icon {
-										top: 28px;
+										top: 14%;
 										right: 43px;
 									}
 								}
@@ -314,14 +310,14 @@ html {
 									}
 
 									.icon {
-										top: 3px;
-										right: 43px;
+										bottom: 14px;
+    									left: 45px;
 									}
 								}
 
 								&.lock {
 									.icon {
-										top: 31px;
+										top: 21%;
 										right: 58px;
 									}
 								}
@@ -378,13 +374,13 @@ html {
 								}
 
 								div {
-									    position: absolute;
-									    right: 10px;
-									    top: 7px;
-									    height: 90%;
-									    width: 196px;
-									    border: 1px solid #8a8048;
-									    border-radius: 6px;
+								    position: absolute;
+								    right: 10px;
+								    top: 7px;
+								    height: 90%;
+								    width: 196px;
+								    border: 1px solid #8a8048;
+								    border-radius: 6px;
 
 									.thumb {
 										width: 100%;
@@ -402,28 +398,53 @@ html {
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
+html{
+	body {
 
-	#thumbnails_wrapper{
-			#outer_container {
+		#thumbnails_wrapper{
+				#outer_container {
 
-				.thumbScroller {
+					.thumbScroller {
 
-					.home-slider {
-				height: 27%;
+						.home-slider {
+							height: 26%;
+			
+							.content {
+							
+								.lesson {
+									margin-top: 16px;
+									
+									&.passed {
+										
+										
+										.icon {
+											top: 24%;
+											right: 43px;
+										}
+									}
+
+
+									&.lock {
+										.icon {
+											top: 32%;
+											right: 58px;
+										}
+									}												
+								}
+							}
+						}
 					}
 				}
 			}
 		}
+	}
 }
-
-
-
 
 @media screen and (min-width: 768px) {
 	html {
 		body {
 
-			/* start navigation's style */
+	/* start navigation's style */
 
 		header {	 
 			height: 60px;
@@ -473,6 +494,7 @@ html {
 					.navbar-right {
 
 						.vip {
+							margin-right: 100px;
 							width: 106px;
     						height: 42px;
 							background-image: url('../../assets/img/vip.png');
@@ -507,7 +529,8 @@ html {
 			.home-page{
 
 				.home-video {
-					    height: 72%;
+					height: 72%;
+
 					#bgimg {
 					    margin-left: -498px;
 					    height: 100%;
@@ -516,9 +539,9 @@ html {
 					.container-plyButton {
 						.plyButton {
 						    .play-button {
-						    	    height: 230px;
-						    	    left: 0;
-   									bottom: 25%;
+					    	    height: 230px;
+					    	    left: 0;
+								bottom: 37%;
 						    }
 						}
 					}
@@ -527,29 +550,28 @@ html {
 			.advertisement{
 				bottom: 20%;
 			}
-		#thumbnails_wrapper{
-			#outer_container {
 
-				.thumbScroller {
+			#thumbnails_wrapper{
+				#outer_container {
 
-					.home-slider {
-					height: 20%;
-							.content{
-							.lesson{
-								a{
-									.drop-down {
-									    top: -145%;
-    									height: 247%;
+					.thumbScroller {
+
+						.home-slider {
+						height: 20%;
+								.content{
+								.lesson{
+									a{
+										.drop-down {
+										    top: -145%;
+	    									height: 247%;
+										}
 									}
-
 								}
 							}
 						}
 					}
 				}
 			}
-		}
-
 		}
 	}
 }
@@ -558,6 +580,18 @@ html {
 @media screen and (min-width: 992px) {
 	html {
 		body {
+
+			header {	 
+				.navbar{
+					
+					.navbar-right {
+
+						.vip {
+							margin-right: 135px;
+						}
+					}
+				}
+			}
 			.home-page{
 
 				.home-video {
@@ -565,7 +599,6 @@ html {
 			    		// transform: scale(2);
 			    		// top: 30%;
 			    	}
-					    
 				}
 			}
 
@@ -584,7 +617,7 @@ html {
 						    .play-button {
 						    	      height: 215px;
 									    left: 0;
-									    bottom: 29%;
+									    bottom: 37%;
 						    }
 						}
 					}
@@ -593,33 +626,82 @@ html {
 			.advertisement{
 				bottom: 24%;
 			}
-		#thumbnails_wrapper{
-			#outer_container {
 
-				.thumbScroller {
+			#thumbnails_wrapper{
+				#outer_container {
 
-					.home-slider {
-					
-					height: 24%;
+					.thumbScroller {
+
+						.home-slider {
+							height: 24%;
+			
+							.content {
+							
+								.lesson {
+									margin-top: 16px;
+									
+									&.passed {
+										
+										
+										.icon {
+											top: 21%;
+											right: 43px;
+										}
+									}
+
+
+									&.lock {
+										.icon {
+											top: 32%;
+											right: 58px;
+										}
+									}												
+								}
+							}
+						}
 					}
 				}
 			}
 		}
-
-		}
-
 	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
+	html {
+		body {
+			header {	 
+				.navbar{
+					
+					.navbar-right {
+
+						.vip {
+							margin-right: 185px;
+						}
+					}
+				}
+			}
+		}
+	}
 
 
-    }
+}
 
     @media only screen and (min-width : 1440px) {
 	html {
 		body {
+
+			header {	 
+				.navbar{
+					
+					.navbar-right {
+
+						.vip {
+							margin-right: 261px;
+						}
+					}
+				}
+			}
 
 			.home-page{
 
@@ -628,22 +710,43 @@ html {
 				}
 			}
 			.advertisement{
-			    bottom: 23%;
+			    bottom: 24%;
 			}
-		#thumbnails_wrapper{
-			#outer_container {
 
-				.thumbScroller {
+			#thumbnails_wrapper{
+				#outer_container {
 
-					.home-slider {
-					height: 22%;
+					.thumbScroller {
+
+						.home-slider {
+							height: 22%;
+			
+							.content {
+							
+								.lesson {
+									margin-top: 16px;
+									
+									&.passed {
+										
+										
+										.icon {
+											top: 21%;
+											right: 43px;
+										}
+									}
+
+									&.lock {
+										.icon {
+											top: 32%;
+											right: 58px;
+										}
+									}												
+								}
+							}
+						}
 					}
 				}
 			}
 		}
-
-		}
-
 	}
-
-    }
+}
