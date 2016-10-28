@@ -15,32 +15,19 @@
      *
      */
 
-  app.controller('HomeController',['$scope', '$interval', function($scope, $interval){
+  app.controller('HomeController',['$scope', function($scope){
     $scope.boxes = [
             {title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
-            {title: 'Quisque nec tellus eleifend, luctus elit ac, pellentesque est. Vivamus sed nunc elementum, faucibus tortor id, rhoncus arcu. '},
+            {title: 'Quisque nec tellus eleifend, luctus elit ac, pellentesque est. Vivamus sed nunc elementum, faucibus tortor id, rhoncus arcu.'},
             {title: 'Ut tempus tristique felis vitae pulvinar.'},
             {title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
-            {title: 'Quisque nec tellus eleifend, luctus elit ac, pellentesque est. Vivamus sed nunc elementum, faucibus tortor id, rhoncus arcu. '},
+            {title: 'Quisque nec tellus eleifend, luctus elit ac, pellentesque est. Vivamus sed nunc elementum, faucibus tortor id, rhoncus arcu.'},
             {title: 'Ut tempus tristique felis vitae pulvinar.'},
             {title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
-            {title: 'Quisque nec tellus eleifend, luctus elit ac, pellentesque est. Vivamus sed nunc elementum, faucibus tortor id, rhoncus arcu. '},
+            {title: 'Quisque nec tellus eleifend, luctus elit ac, pellentesque est. Vivamus sed nunc elementum, faucibus tortor id, rhoncus arcu.'},
             {title: 'Ut tempus tristique felis vitae pulvinar.'},
             {title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
         ];
-
-        $scope.moving = false;
-
-        $scope.moveLeft = function() {
-            $scope.moving = true;
-        };
-
-        $scope.switchFirst = function() {
-            $scope.moving = false;
-            $scope.$apply();
-        };
-
-        $interval($scope.moveLeft, 2000);
 
 
         $scope.lessons = [
