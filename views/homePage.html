@@ -1,64 +1,52 @@
 <div class="home-page">
-
 	<!-- lesson preview -->
-    <div id="bg" class="home-video">
-    	<div class="container-fluid container-plyButton">
-	    	<div class="row plyButton">
-		    	<a href="#/" class="play-button pagination-centered col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-5 col-xs-offset-0 col-xs-7">
-		    	<!-- <img src="../assets/img/Play_Icon.png" alt=""> -->
-	    	</a>
-	    	</div>
-    	</div>
-    		
-    	
-    	<img src="" class="" alt="Denebola" title="Denebola"  width="1300" height="700" id="bgimg" />
+	<div id="bg" class="home-video">
+		<div class="container-fluid container-plyButton">
+			<div class="row plyButton">
+				<a href="#/" class="play-button pagination-centered col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-5 col-xs-offset-0 col-xs-7">
+					<!-- <img src="../assets/img/Play_Icon.png" alt=""> -->
+				</a>
+			</div>
+		</div>
+		
+		
+		<img src="" class="" alt="Denebola" title="Denebola"  width="1300" height="700" id="bgimg" />
 		
 		<div id="preloader"><img src="../assets/img/ajax-loader_dark.gif" width="32" height="32" /></div>
-
-    </div>
-
-
+	</div>
 	<!-- end lesson preview -->
-
-    <div class="advertisement">
-    	<div>
-		    <div class="ticker">
-		      <div ng-class="{moving: moving}" class="viewport">
-		        <div ng-repeat="box in boxes" class="box"><span class="circle"></span><span>{{ box.title }}</span></div>
-		      </div>
-		    </div>
+	<div class="advertisement">
+		<div>
+			<div class="ticker">
+				<div class="viewport moving">
+					<div ng-repeat="box in boxes" class="box"><span class="circle"></span><span>{{ box.title }}</span></div>
+				</div>
+			</div>
 		</div>
-    </div>
-
-    <!-- horizontal-scroll -->
-
-    <div id="thumbnails_wrapper">
+	</div>
+	<!-- horizontal-scroll -->
+	<div id="thumbnails_wrapper">
 		<div id="outer_container">
 			<div class="thumbScroller" id="basic">
 				<div class="container home-slider">
 					<div class="content"  ng-repeat="lesson in lessons"  sly-horizontal-repeat >
 						<div class="lesson {{lesson.state}}">
 							<a ng-click="changeImage($event)" class="{{lesson.state}} {{lesson.number}}" ng-href="../assets/img/{{ lesson.img_bg }}">
-							<div class="drop-down">
-								<p>{{ lesson.info }}</p>
-
-							</div>
-							<p class="lesson-number">{{ lesson.number }}</p>
-							<div class="lesson-right-part" >
-								<img ng-src="../assets/img/{{ lesson.img_thumb }}" title="Lesson" alt="Lesson" class="thumb" />
-
-								<img class="{{lesson.state}} icon" ng-src="../assets/img/{{ lesson.state }}.png">
-							</div>
+								<div class="drop-down">
+									<p>{{ lesson.info }}</p>
+								</div>
+								<p class="lesson-number">{{ lesson.number }}</p>
+								<div class="lesson-right-part" >
+									<img ng-src="../assets/img/{{ lesson.img_thumb }}" title="Lesson" alt="Lesson" class="thumb" />
+									<img class="{{lesson.state}} icon" ng-src="../assets/img/{{ lesson.state }}.png">
+								</div>
 							</a>
 						</div>
 						
-
-					</div>			
-				</div> 
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- end horizontal-scroll -->
-
 </div>

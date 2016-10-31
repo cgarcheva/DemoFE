@@ -1,72 +1,58 @@
 <html ng-app="hwEnglish">
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    
-    <meta name="description" content="Simple demo for SPA book of recipes">
-    <meta name="LaMark" content="">
-
-
-    <link rel="stylesheet" type="text/css" href="assets/fonts/fonts.css">
-    <link rel="stylesheet" type="text/css" href="build/css/thirdparty.css">
-    <link rel="stylesheet" type="text/css" href="build/css/app.css">
-    <link href="https://fonts.googleapis.com/css?family=Poiret%20One|Roboto" rel="stylesheet">
-</head>
-
-<body>
-
-    <div ng-controller="HwEnglishController">
-        <header>
-            <!-- Navigation -->
-            <nav class="navbar navbar-default navbar-fixed-top">
-            
-                <div class="container-fluid">
-                    <!-- Left side of the navigation -->
-                    <div class="navbar-item navbar-left pull-left navbar-container">
-                                <a class="nav-link user" href="#">
-                                </a>
-                                <a class="nav-link rank" href="#"></a>
-                    </div>
-                    <!-- End left side of the navigation -->
-
-                    <div class="navbar-item navbar-nav">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        
+        <meta name="description" content="Simple demo for SPA book of recipes">
+        <meta name="LaMark" content="">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/fonts.css">
+        <link rel="stylesheet" type="text/css" href="build/css/thirdparty.css">
+        <link rel="stylesheet" type="text/css" href="build/css/app.css">
+        <link href="https://fonts.googleapis.com/css?family=Poiret%20One|Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <div ng-controller="HwEnglishController">
+            <header>
+                <!-- Navigation -->
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    
+                    <div class="container-fluid">
+                        <!-- Left side of the navigation -->
+                        <div class="navbar-item navbar-left pull-left navbar-container">
+                            <a class="nav-link user" href="#">
+                            </a>
+                            <a class="nav-link rank" href="#"></a>
+                        </div>
+                        <!-- End left side of the navigation -->
+                        <div class="navbar-item navbar-nav">
                             <div class="text-center points">6.790</div>
+                        </div>
+                        <!-- Right side of the navigation -->
+                        <div class="navbar-item navbar-right pull-right navbar-container">
+                            <a class="nav-link vip" href="#">
+                                <span class="text">VIP</span>
+                                <span class="vip-points">{{64}}</span>
+                            </a>
+                            <a class="nav-link home-icon" href="#"></a>
+                        </div>
+                        
+                        <!-- End right side of the navigation -->
                     </div>
-
-                    <!-- Right side of the navigation -->
-                    <div class="navbar-item navbar-right pull-right navbar-container">
-                                <a class="nav-link vip" href="#">
-                                    <span class="text">VIP</span>
-                                    <span class="vip-points">{{64}}</span>
-                                </a>
-                                <a class="nav-link home-icon" href="#"></a>
-                    </div>
-            
-                    <!-- End right side of the navigation -->
-                </div>
-               
-            </nav>
-            <!-- End navigation -->
-        </header>
-
+                    
+                </nav>
+                <!-- End navigation -->
+            </header>
             <!-- INJECT THE CONTENT HERE -->
-       
-                <div ui-view class="view"></div>
-
+            
+            <div ui-view class="view"></div>
         </div>
     </div>
-
     <!-- dev need -->
     <script src="build/js/thirdparty.js"></script>
     <script src="build/js/app.js"></script>
-
     <!-- prod need -->
     <!--<script src="build/js/thirdparty.min.js"></script>-->
     <!--<script src="build/js/app.min.js"></script>-->
-
-
-
 </body>
 </html>

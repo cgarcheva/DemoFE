@@ -1,20 +1,20 @@
- (function  () {
+ (function() {
 
-    'use strict';
+     'use strict';
 
-    /**
-     * @ngdoc overview
-     * @module hwEnglish
-     * @name hwEnglish
-     *
-     * @description
+     /**
+      * @ngdoc overview
+      * @module hwEnglish
+      * @name hwEnglish
+      *
+      * @description
+      
+      * General module for hwEnglish app
+      */
+     angular.module('hwEnglish', [
+         'ui.router',
+         'LocalStorageModule',
+         'hwEnglish.home'
+     ]);
 
-     * General module for hwEnglish app
-     */
-    angular.module('hwEnglish', [
-        'ui.router',
-        'LocalStorageModule',
-        'hwEnglish.home'
-    ]);
-
-})();
+ })();
